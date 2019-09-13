@@ -35,11 +35,6 @@
 
 <script>
 export default {
-  components: {
-    LoadingButton,
-    Logo,
-    TextInput,
-  },
   props: {
     errors: Object,
   },

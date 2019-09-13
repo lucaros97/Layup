@@ -22,8 +22,3 @@ Route::get('/')->name('dashboard')->uses('DashboardController')->middleware('aut
 Route::get('500', function () {
     echo $fail;
 });
-
-
-
-// Dashboard
-// Route::get('/')->name('dashboard')->uses('DashboardController')->middleware('auth');

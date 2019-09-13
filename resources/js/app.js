@@ -7,7 +7,7 @@ Vue.mixin({ methods: { route: window.route } })
 Vue.use(InertiaApp)
 Vue.use(PortalVue)
 
-const app = document.getElementById('app')
+let app = document.getElementById('app')
 
 new Vue({
   render: h => h(InertiaApp, {
