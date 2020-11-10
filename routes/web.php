@@ -1,4 +1,7 @@
 <?php
+
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,15 +13,10 @@
 |
 */
 
-// Auth
-Route::get('login')->name('login')->uses('Auth\LoginController@showLoginForm')->middleware('guest');
-Route::post('login')->name('login.attempt')->uses('Auth\LoginController@login')->middleware('guest');
-Route::post('logout')->name('logout')->uses('Auth\LoginController@logout');
-
-// Dashboard
-Route::get('/')->name('dashboard')->uses('DashboardController')->middleware('auth');
-
-// 500 error
-Route::get('500', function () {
-    echo $fail;
+Route::get('/', function () {
+    return view('welcome');
 });
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return Inertia\Inertia::render('Dashboard');
+})->name('dashboard');
